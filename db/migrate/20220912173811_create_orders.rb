@@ -9,8 +9,6 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :total_value
       t.string :line_items
       t.integer :status, default: 0
-
-      t.timestamps
     end
   end
 end
