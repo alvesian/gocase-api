@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :batches
+  resources :orders
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/purchase_channel', to: 'orders#purchase_channel'
+  get '/client', to: 'orders#client'
 end
