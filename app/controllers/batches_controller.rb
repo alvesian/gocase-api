@@ -20,16 +20,16 @@ class BatchesController < ApplicationController
       render json: { message: 'ERROR: The batch was not promoted!' }, status: 420
     else
       update_orders(2)
-      render json: { message: 'The batch was promoted to closing!' }, status: 200
+      render json: { message: 'SUCCESS! The batch was promoted to closing!' }, status: 200
     end
   end
 
   def render_json_batch
-    render json: { message: 'The batch was created!',
+    render json: { message: 'SUCCESS! The batch was created!',
                    reference: @batch.reference,
                    purchase_channel: @batch.purchase_channel,
                    number_of_orders: @number_of_orders,
-                   orders: @orders }
+                   orders: @orders }, status: 200
   end
 
   def update_orders(status)
@@ -44,9 +44,8 @@ class BatchesController < ApplicationController
 
     @orders = Order.where(delivery_service: params[:delivery_service], batch_id: @batch.id)
     if @orders.first.nil?
-      render json: { message: 'The batch was not created!' }, status: 420
+      render json: { message: 'ERROR: The batch was not created!' }, status: 420 if @orders.first.nil?
     else
-      @number_of_orders = @orders.count
       update_orders(3)
       @orders = Order.where(delivery_service: params[:delivery_service], batch_id: @batch.id, status: 3)
       render_batch_sent
@@ -54,11 +53,11 @@ class BatchesController < ApplicationController
   end
 
   def render_batch_sent
-    render json: { message: 'The batch was marked as sent!',
+    render json: { message: 'SUCCESS! The batch was marked as sent!',
                    reference: @batch.reference,
                    purchase_channel: @batch.purchase_channel,
-                   number_of_orders: @number_of_orders,
-                   orders: @orders }
+                   number_of_orders: @orders.count,
+                   orders: @orders }, status: 200
   end
 
   private

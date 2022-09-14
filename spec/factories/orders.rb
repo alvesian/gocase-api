@@ -8,4 +8,5 @@ FactoryBot.define do
     total_value { 123_30 }
     line_items { '[{ sku: case-my-best-friend, model: iPhone X, case type: Rose Leather }, { sku: powebank-sunshine, capacity: 10000mah }, { sku: earphone-standard, color: white }]' }
   end
+
 end
