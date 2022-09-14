@@ -17,4 +17,4 @@ I want to thank Gocase for the opportunity to take this test. It was a test with
 
 ## Documentation
 
-Here you can find the [documentation](https://documenter.getpostman.com/view/18604903/2s7YYva2x4) for teste requests and endpoints: https://documenter.getpostman.com/view/18604903/2s7YYva2x4
+Here you can find the [documentation](https://documenter.getpostman.com/view/18604903/2s7YYva2x4) for test requests and endpoints: https://documenter.getpostman.com/view/18604903/2s7YYva2x4
