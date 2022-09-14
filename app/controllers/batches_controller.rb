@@ -44,9 +44,8 @@ class BatchesController < ApplicationController
 
     @orders = Order.where(delivery_service: params[:delivery_service], batch_id: @batch.id)
     if @orders.first.nil?
-      render json: { message: 'ERROR: The batch was not created!' }, status: 420
+      render json: { message: 'ERROR: The batch was not created!' }, status: 420 if @orders.first.nil?
     else
-      @number_of_orders = @orders.count
       update_orders(3)
       @orders = Order.where(delivery_service: params[:delivery_service], batch_id: @batch.id, status: 3)
       render_batch_sent
@@ -57,7 +56,7 @@ class BatchesController < ApplicationController
     render json: { message: 'SUCCESS! The batch was marked as sent!',
                    reference: @batch.reference,
                    purchase_channel: @batch.purchase_channel,
-                   number_of_orders: @number_of_orders,
+                   number_of_orders: @orders.count,
                    orders: @orders }, status: 200
   end
 
