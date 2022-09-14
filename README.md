@@ -1,24 +1,11 @@
-# README
+## About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I want to thank Gocase for the opportunity to take this test. It was a test with a lot of learning and I delivered what I can do best.
 
-Things you may want to cover:
+## Additional Stuff - Answers
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## Documentation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Here you can find the documentation: https://documenter.getpostman.com/view/18604903/2s7YYva2x4
